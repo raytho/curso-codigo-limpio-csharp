@@ -67,7 +67,7 @@ namespace ToDo
                     {
                         string taskToRemove = TaskList[indexToRemove];
                         TaskList.RemoveAt(indexToRemove);
-                        Console.WriteLine("Tarea " + taskToRemove + " eliminada");
+                        Console.WriteLine($"Tarea {taskToRemove} eliminada");
                     }
                 }
             }
@@ -106,7 +106,7 @@ namespace ToDo
 
         public static void PrintListTasks()
         {
-            if (TaskList == null || TaskList.Count == 0)
+            if (TaskList?.Count <= 0)
             {
                 Console.WriteLine("No hay tareas por realizar");
             }
@@ -114,7 +114,7 @@ namespace ToDo
             {
                 Console.WriteLine("----------------------------------------");
                 var indexTask = 1;
-                TaskList.ForEach(p => Console.WriteLine(indexTask++ + ". " + p));
+                TaskList.ForEach(p => Console.WriteLine($"{indexTask++}. {p}"));
                 Console.WriteLine("----------------------------------------");
             }
         }
